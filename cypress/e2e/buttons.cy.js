@@ -35,7 +35,8 @@ describe('Context: My First Tests', () => {
         cy.contains('Clicked on button four!').should('be.visible');
       }
     });
-
-    // npx cypress run --headless -b chrome
+    
+          // npx cypress run --headless -b chrome 
+          // headless run with chrome (-b stands for: browser)
   });
 });

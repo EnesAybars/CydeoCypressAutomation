@@ -4,7 +4,6 @@ const { check } = require("prettier");
 
 describe('Input Forms Tests', () => {
   beforeEach('Navigate to registration page', () => {
-    // runs before each test case, BeforeMethod in TestNG
     cy.clearCookies();
     cy.visit('/registration_form');
   });
