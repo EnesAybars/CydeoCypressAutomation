@@ -1,6 +1,6 @@
 ///  <reference types="cypress" />
 
-const { check } = require("prettier");
+const { check } = require('prettier');
 
 describe('Input Forms Tests', () => {
   beforeEach('Navigate to registration page', () => {
@@ -32,26 +32,24 @@ describe('Input Forms Tests', () => {
     cy.get('input[name="birthday"]').type('01/01/1999');
   });
 
-  xit('Check different input box fields and verify', () => {
+  xit('Check different input box fields and verify', () => {});
 
-
-  });
-
-  xit('Check different radio box actions', () => {
-    cy.get('.radio').find('[type=radio]').then((radio => {
-        // get all radio buttons, select the first one, verify that it is checked 
+  it('Check different radio box actions', () => {
+    cy.get('.radio')
+      .find('[type=radio]')
+      .then((radio) => {
+        // get all radio buttons, select the first one, verify that it is checked
         cy.wrap(radio).first().check().should('be.checked');
 
         /**
          * radio: is Jquery element,
          * cy.wrap(radio): turns it into Cypress Object so that we can use cypress functions
          * first(): selects first element
-         * check(): presses the radio box which also means checks the radio box 
+         * check(): presses the radio box which also means checks the radio box
          * should():verifies whatever we provide as parameter
          * be.checked: we provide this statement into should() function
          *              it basically asserts whether it is checked
-         */ 
-
+         */
 
         // get all radio buttons, select the second one, verify that it is checked
         cy.wrap(radio).eq(1).check().should('be.checked');
@@ -59,39 +57,25 @@ describe('Input Forms Tests', () => {
 
         // third radio button is NOT checked
         cy.wrap(radio).eq(2).should('not.be.checked');
-
-    }))
+      });
   });
 
-  xit('Check different checkbox actions', () => {
-    //get all checkboxes, select Java and verify
-    cy.get('[type="checkbox"]').then((checkbox) => {
-        cy.wrap(checkbox).eq(1).check().should('be.checked');
-        
-        // uncheck JAVA box
-        cy.wrap(checkbox).eq(1).uncheck().should('not.be.checked');
-
-        // verify third one has a value Javascript and then check and verify
-        cy.wrap(checkbox).eq(2)
-        .should('have.value','javascript')
-        .check().should('be.checked');
-    })
-  })
-
-
-
   it('Check different checkbox actions', () => {
+    // get all checkboxes, select Java and verify
+    cy.get('[type="checkbox"]').then((checkbox) => {
+      cy.wrap(checkbox).eq(1).check().should('be.checked');
 
+      // uncheck JAVA box
+      cy.wrap(checkbox).eq(1).uncheck().should('not.be.checked');
 
+      // verify third one has a value Javascript and then check and verify
+      cy.wrap(checkbox).eq(2).should('have.value', 'javascript').check().should('be.checked');
+    });
+  });
 
-  })
+  it('Check different checkbox actions', () => {});
 
-  xit('Check different checkbox actions', () => {
+  xit('Check different checkbox actions', () => {});
 
-
-
-  })
-
-
-    // to open cypress console code: npm run cypress-cli
+  // to open cypress console code: npm run cypress-cli
 });
